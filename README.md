@@ -1,7 +1,31 @@
 # aws-ip
-list public IP of aws service
+[![pipeline](https://github.com/pete911/aws-ip/actions/workflows/pipeline.yml/badge.svg)](https://github.com/pete911/aws-ip/actions/workflows/pipeline.yml)
 
-## rds
+list public IPs of aws services
+
+## build
+
+`go build` or `go install`
+
+## download
+
+- [binary](https://github.com/pete911/aws-ip/releases)
+
+## build/install
+
+### brew
+
+- add tap `brew tap pete911/tap`
+- install `brew install pete911/tap/aws-ip`
+
+## release
+
+Releases are published when the new tag is created e.g.
+`git tag -m "<message>" v1.0.0 && git push --follow-tags`
+
+## run
+
+### rds
 
 List IPs of RDS databases
 
