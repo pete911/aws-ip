@@ -106,7 +106,7 @@ func (r ElasticacheRunner) tableRow(cluster elasticache.Cluster, node elasticach
 	}
 
 	row := []string{
-		node.CacheNodeId,
+		cluster.CacheClusterId,
 		cluster.Engine,
 		cluster.EngineVersion,
 		node.CacheNodeId,
