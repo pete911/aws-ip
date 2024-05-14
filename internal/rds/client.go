@@ -20,7 +20,7 @@ func NewClient(logger *slog.Logger, config internal.Config) Client {
 	}
 }
 
-func (c Client) ListInstances(ctx context.Context) ([]Instance, error) {
+func (c Client) DescribeDBInstances(ctx context.Context) ([]Instance, error) {
 	in := &rds.DescribeDBInstancesInput{}
 
 	var instances []Instance

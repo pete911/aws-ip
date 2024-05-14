@@ -3,7 +3,7 @@ package rds
 import (
 	"github.com/aws/aws-sdk-go-v2/aws"
 	"github.com/aws/aws-sdk-go-v2/service/rds/types"
-	"net"
+	"github.com/pete911/aws-ip/internal"
 	"time"
 )
 
@@ -32,20 +32,7 @@ type Instance struct {
 }
 
 func (i Instance) LookupIp() ([]string, error) {
-	if i.Endpoint.Address == "" {
-		return nil, nil
-	}
-
-	ips, err := net.LookupIP(i.Endpoint.Address)
-	if err != nil {
-		return nil, err
-	}
-
-	var out []string
-	for _, ip := range ips {
-		out = append(out, ip.String())
-	}
-	return out, nil
+	return internal.LookupIp(i.Endpoint.Address)
 }
 
 func toInstances(in []types.DBInstance) []Instance {

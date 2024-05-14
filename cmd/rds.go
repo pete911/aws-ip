@@ -42,7 +42,7 @@ type RdsRunner struct {
 }
 
 func (r RdsRunner) Run(ctx context.Context) {
-	instances, err := r.client.ListInstances(ctx)
+	instances, err := r.client.DescribeDBInstances(ctx)
 	if err != nil {
 		fmt.Println(err.Error())
 		os.Exit(1)
