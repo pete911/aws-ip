@@ -17,7 +17,8 @@ type Cluster struct {
 	CacheClusterStatus        string
 	CacheNodeType             string
 	CacheNodes                []Node
-	CacheSubnetGroupName      string
+	VpcId                     string
+	Subnets                   []string
 	ConfigurationEndpoint     Endpoint
 	Engine                    string
 	EngineVersion             string
@@ -26,15 +27,15 @@ type Cluster struct {
 	NumCacheNodes             int
 }
 
-func toClusters(in []types.CacheCluster) []Cluster {
+func toClusters(in []types.CacheCluster, subnetGroupsByName map[string]subnetGroup) []Cluster {
 	var out []Cluster
 	for _, v := range in {
-		out = append(out, toCluster(v))
+		out = append(out, toCluster(v, subnetGroupsByName))
 	}
 	return out
 }
 
-func toCluster(in types.CacheCluster) Cluster {
+func toCluster(in types.CacheCluster, subnetGroupsByName map[string]subnetGroup) Cluster {
 	return Cluster{
 		ARN:                       aws.ToString(in.ARN),
 		AtRestEncryptionEnabled:   aws.ToBool(in.AtRestEncryptionEnabled),
@@ -45,7 +46,8 @@ func toCluster(in types.CacheCluster) Cluster {
 		CacheClusterStatus:        aws.ToString(in.CacheClusterStatus),
 		CacheNodeType:             aws.ToString(in.CacheNodeType),
 		CacheNodes:                toNodes(in.CacheNodes),
-		CacheSubnetGroupName:      aws.ToString(in.CacheSubnetGroupName),
+		VpcId:                     subnetGroupsByName[aws.ToString(in.CacheSubnetGroupName)].vpcId,
+		Subnets:                   subnetGroupsByName[aws.ToString(in.CacheSubnetGroupName)].subnets,
 		ConfigurationEndpoint:     toEndpoint(in.ConfigurationEndpoint),
 		Engine:                    aws.ToString(in.Engine),
 		EngineVersion:             aws.ToString(in.EngineVersion),
