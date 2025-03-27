@@ -7,7 +7,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/config v1.29.11
 	github.com/aws/aws-sdk-go-v2/service/ec2 v1.210.1
 	github.com/aws/aws-sdk-go-v2/service/elasticache v1.45.1
-	github.com/aws/aws-sdk-go-v2/service/rds v1.94.1
+	github.com/aws/aws-sdk-go-v2/service/rds v1.94.2
 	github.com/aws/aws-sdk-go-v2/service/sts v1.33.17
 	github.com/spf13/cobra v1.9.1
 )
