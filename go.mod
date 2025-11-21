@@ -5,9 +5,9 @@ go 1.24.4
 require (
 	github.com/aws/aws-sdk-go-v2 v1.40.0
 	github.com/aws/aws-sdk-go-v2/config v1.32.0
-	github.com/aws/aws-sdk-go-v2/service/ec2 v1.272.1
+	github.com/aws/aws-sdk-go-v2/service/ec2 v1.273.0
 	github.com/aws/aws-sdk-go-v2/service/elasticache v1.51.4
-	github.com/aws/aws-sdk-go-v2/service/rds v1.109.1
+	github.com/aws/aws-sdk-go-v2/service/rds v1.110.0
 	github.com/aws/aws-sdk-go-v2/service/sts v1.41.1
 	github.com/spf13/cobra v1.10.1
 )
