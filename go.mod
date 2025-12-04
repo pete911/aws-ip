@@ -9,7 +9,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/elasticache v1.51.6
 	github.com/aws/aws-sdk-go-v2/service/rds v1.112.0
 	github.com/aws/aws-sdk-go-v2/service/sts v1.41.3
-	github.com/spf13/cobra v1.10.1
+	github.com/spf13/cobra v1.10.2
 )
 
 require (
