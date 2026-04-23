@@ -3,15 +3,16 @@ package cmd
 import (
 	"context"
 	"fmt"
+	"os"
+
 	"github.com/pete911/aws-ip/cmd/flag"
 	"github.com/pete911/aws-ip/internal/ec2"
 	"github.com/spf13/cobra"
-	"os"
 )
 
 var (
 	GlobalFlags flag.Global
-	Root        = &cobra.Command{}
+	Root        = &cobra.Command{Short: "view public IPs of AWS services"}
 
 	Version string
 )

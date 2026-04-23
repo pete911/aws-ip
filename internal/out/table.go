@@ -31,17 +31,3 @@ func (t Table) Print() {
 		t.logger.Error(fmt.Sprintf("table: print: %v", err))
 	}
 }
-
-func FromInt(i int) string {
-	if i == 0 {
-		return "-"
-	}
-	return fmt.Sprintf("%d", i)
-}
-
-func TrimTo(in string, max int) string {
-	if len(in) < max {
-		return in
-	}
-	return fmt.Sprintf("%s...", in[:max-3])
-}

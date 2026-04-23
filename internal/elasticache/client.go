@@ -2,11 +2,12 @@ package elasticache
 
 import (
 	"context"
+	"log/slog"
+
 	"github.com/aws/aws-sdk-go-v2/aws"
 	"github.com/aws/aws-sdk-go-v2/service/elasticache"
 	"github.com/aws/aws-sdk-go-v2/service/elasticache/types"
 	"github.com/pete911/aws-ip/internal"
-	"log/slog"
 )
 
 type Client struct {
@@ -76,6 +77,7 @@ func (c Client) describeCacheSubnetGroupsByName(ctx context.Context) (map[string
 		if aws.ToString(out.Marker) == "" {
 			break
 		}
+		in.Marker = out.Marker
 	}
 	return subnetsGroups, nil
 }
